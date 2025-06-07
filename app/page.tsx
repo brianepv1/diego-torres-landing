@@ -25,6 +25,26 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { TestimonialCarousel } from "@/components/ui/testimonial-carousel"
+
+// --- 1. Centralized Contact Information ---
+// Edit your phone number and other contact details only once in this object.
+const contactInfo = {
+  phone: "5215512345678",
+  email: "diego@esoterico.com",
+  instagramUrl: "https://instagram.com/diegotorres_esoterico",
+  facebookUrl: "https://facebook.com/diegotorres.esoterico",
+}
+
+// --- 2. Helper Function for WhatsApp Links ---
+// This function creates a WhatsApp link, optionally with a pre-filled message.
+const createWhatsAppLink = (text?: string) => {
+  const baseUrl = `https://wa.me/${contactInfo.phone}`
+  if (text) {
+    return `${baseUrl}?text=${encodeURIComponent(text)}`
+  }
+  return baseUrl
+}
 
 export default function Component() {
   const [isVisible, setIsVisible] = useState(false)
@@ -45,7 +65,8 @@ export default function Component() {
       icon: <Flame className="w-6 h-6" />,
       price: "Desde $290 - $890 MXN",
       image: "/veladoras2.jpeg?height=400&width=600&text=Candles+Spiritual",
-      whatsapp: "https://wa.me/5215512345678?text=Hola,%20me%20interesa%20información%20sobre%20las%20veladoras",
+      // We now only define the unique part of the message.
+      whatsappText: "Hola, me interesa información sobre las veladoras",
     },
     {
       title: "Lectura de Tarot - Cartas Españolas",
@@ -53,16 +74,15 @@ export default function Component() {
       icon: <Star className="w-6 h-6" />,
       price: "Desde $450 - $850 MXN",
       image: "/cartas.jpeg?height=400&width=600&text=Tarot+Cards",
-      whatsapp: "https://wa.me/5215512345678?text=Hola,%20me%20interesa%20una%20lectura%20con%20cartas%20españolas",
+      whatsappText: "Hola, me interesa una lectura con cartas españolas",
     },
     {
       title: "Tarot de los 7 Arcángeles",
       description: "Conexión divina a través del poderoso tarot de los 7 arcángeles para obtener sabiduría celestial",
       icon: <Eye className="w-6 h-6" />,
       price: "Desde $550 - $950 MXN",
-    
       image: "/arcangel.jpeg?height=400&width=600&text=7+Angels+Tarot",
-      whatsapp: "https://wa.me/5215512345678?text=Hola,%20me%20interesa%20el%20tarot%20de%20los%207%20arcángeles",
+      whatsappText: "Hola, me interesa el tarot de los 7 arcángeles",
     },
     {
       title: "Trabajos Blancos y Negros",
@@ -71,7 +91,7 @@ export default function Component() {
       icon: <Moon className="w-6 h-6" />,
       price: "Desde $2,900 - $5,900 MXN",
       image: "/buenoymalo.jpeg?height=400&width=600&text=Spiritual+Rituals",
-      whatsapp: "https://wa.me/5215512345678?text=Hola,%20necesito%20información%20sobre%20trabajos%20espirituales",
+      whatsappText: "Hola, necesito información sobre trabajos espirituales",
     },
     {
       title: "Limpias y Abrecaminos",
@@ -79,13 +99,13 @@ export default function Component() {
       icon: <Shield className="w-6 h-6" />,
       price: "Desde $1,200 - $2,800 MXN",
       image: "/eterial.jpeg?height=400&width=600&text=Energy+Cleansing",
-      whatsapp: "https://wa.me/5215512345678?text=Hola,%20me%20interesa%20una%20limpia%20espiritual",
+      whatsappText: "Hola, me interesa una limpia espiritual",
     },
   ]
 
   const stats = [
     { number: "1,500+", label: "Consultas Realizadas", icon: <Users className="w-5 h-5" /> },
-    { number: "15+", label: "Años de Experiencia", icon: <Award className="w-5 h-5" /> },
+    { number: "7+", label: "Años de Experiencia", icon: <Award className="w-5 h-5" /> },
     { number: "24/7", label: "Disponibilidad", icon: <Clock className="w-5 h-5" /> },
   ]
 
@@ -150,9 +170,7 @@ export default function Component() {
               </Link>
               <Button
                 className="bg-luxury-gold hover:bg-luxury-gold-dark text-black px-6 py-2 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-                onClick={() =>
-                  window.open("https://wa.me/5215512345678?text=Hola,%20me%20interesa%20una%20consulta", "_blank")
-                }
+                onClick={() => window.open(createWhatsAppLink("Hola, me interesa una consulta"), "_blank")}
               >
                 Consulta Ahora
               </Button>
@@ -191,10 +209,7 @@ export default function Component() {
                   size="lg"
                   className="bg-luxury-gold hover:bg-luxury-gold-dark text-black px-8 py-4 text-lg font-semibold rounded-2xl shadow-2xl hover:shadow-luxury-gold/25 transform hover:scale-[1.02] transition-all duration-300"
                   onClick={() =>
-                    window.open(
-                      "https://wa.me/5215512345678?text=Hola,%20me%20interesa%20una%20consulta%20espiritual",
-                      "_blank",
-                    )
+                    window.open(createWhatsAppLink("Hola, me interesa una consulta espiritual"), "_blank")
                   }
                 >
                   <MessageCircle className="w-5 h-5 mr-2" />
@@ -246,7 +261,7 @@ export default function Component() {
       </section>
 
       {/* Services Section - Premium Design */}
-      <section id="servicios" className="relative z-10 py-32">
+      <section id="servicios" className="relative z-10 py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-20">
@@ -324,7 +339,7 @@ export default function Component() {
 
                     <Button
                       className="w-full bg-luxury-gold hover:bg-luxury-gold-dark text-black font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-                      onClick={() => window.open(service.whatsapp, "_blank")}
+                      onClick={() => window.open(createWhatsAppLink(service.whatsappText), "_blank")}
                     >
                       <MessageCircle className="w-4 h-4 mr-2" />
                       Consultar por WhatsApp
@@ -339,7 +354,7 @@ export default function Component() {
       </section>
 
       {/* About Section - Premium Layout */}
-      <section id="sobre-mi" className="relative z-10 py-32">
+      <section id="sobre-mi" className="relative z-10 py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="relative order-2 lg:order-1">
@@ -368,7 +383,7 @@ export default function Component() {
               </h2>
 
               <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-                Con más de 15 años de experiencia en las artes esotéricas, me he dedicado al estudio profundo de la
+                Con más de 7 años de experiencia en las artes esotéricas, me he dedicado al estudio profundo de la
                 sabiduría ancestral de La Santa Muerte y la conexión divina con los 7 Arcángeles.
               </p>
 
@@ -396,7 +411,7 @@ export default function Component() {
                 className="bg-luxury-gold hover:bg-luxury-gold-dark text-black px-8 py-4 text-lg font-semibold rounded-2xl shadow-lg hover:shadow-luxury-gold/25 transition-all duration-300"
                 onClick={() =>
                   window.open(
-                    "https://wa.me/5215512345678?text=Hola,%20me%20gustaría%20conocer%20más%20sobre%20tu%20experiencia",
+                    createWhatsAppLink("Hola, me gustaría conocer más sobre tu experiencia"),
                     "_blank",
                   )
                 }
@@ -410,8 +425,13 @@ export default function Component() {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <section id="testimonios" className="relative z-10 py-24">
+        <TestimonialCarousel />
+      </section>
+
       {/* Contact Section - Modern Design */}
-      <section id="contacto" className="relative z-10 py-32">
+      <section id="contacto" className="relative z-10 py-24">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-20">
             <Badge className="mb-6 bg-vibrant-red/10 text-vibrant-red border-vibrant-red/20 px-4 py-2 backdrop-blur-sm">
@@ -435,7 +455,8 @@ export default function Component() {
                 action: "Enviar Mensaje",
                 bgColor: "bg-green-600",
                 hoverColor: "hover:bg-green-700",
-                onClick: () => window.open("https://wa.me/5215512345678", "_blank"),
+                // Uses helper without text for a generic message
+                onClick: () => window.open(createWhatsAppLink(), "_blank"),
               },
               {
                 icon: <Phone className="w-8 h-8" />,
@@ -444,7 +465,8 @@ export default function Component() {
                 action: "Llamar Ahora",
                 bgColor: "bg-blue-600",
                 hoverColor: "hover:bg-blue-700",
-                onClick: () => window.open("tel:+5215512345678", "_blank"),
+                // Uses the phone number from the contactInfo object
+                onClick: () => window.open(`tel:+${contactInfo.phone}`, "_blank"),
               },
               {
                 icon: <Mail className="w-8 h-8" />,
@@ -453,7 +475,8 @@ export default function Component() {
                 action: "Enviar Email",
                 bgColor: "bg-purple-600",
                 hoverColor: "hover:bg-purple-700",
-                onClick: () => window.open("mailto:diego@esoterico.com", "_blank"),
+                // Uses the email from the contactInfo object
+                onClick: () => window.open(`mailto:${contactInfo.email}`, "_blank"),
               },
             ].map((contact, index) => (
               <Card
@@ -490,7 +513,7 @@ export default function Component() {
                 className="bg-luxury-gold hover:bg-luxury-gold-dark text-black px-12 py-4 text-lg font-semibold rounded-2xl shadow-2xl hover:shadow-luxury-gold/25 transform hover:scale-[1.02] transition-all duration-300"
                 onClick={() =>
                   window.open(
-                    "https://wa.me/5215512345678?text=Hola%20Diego,%20me%20gustaría%20agendar%20una%20consulta%20espiritual",
+                    createWhatsAppLink("Hola Diego, me gustaría agendar una consulta espiritual"),
                     "_blank",
                   )
                 }
@@ -546,19 +569,21 @@ export default function Component() {
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <MessageCircle className="w-5 h-5 text-luxury-gold" />
-                  <span className="text-gray-400">WhatsApp: +52 155 1234 5678</span>
+                  {/* Using the constant for display */}
+                  <span className="text-gray-400">WhatsApp: +{contactInfo.phone}</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="w-5 h-5 text-luxury-gold" />
-                  <span className="text-gray-400">diego@esoterico.com</span>
+                  {/* Using the constant for display */}
+                  <span className="text-gray-400">{contactInfo.email}</span>
                 </div>
               </div>
 
               <div className="flex space-x-4 mt-6">
                 {[
-                  { icon: <Instagram className="w-5 h-5" />, url: "https://instagram.com/diegotorres_esoterico" },
-                  { icon: <Facebook className="w-5 h-5" />, url: "https://facebook.com/diegotorres.esoterico" },
-                  { icon: <MessageCircle className="w-5 h-5" />, url: "https://wa.me/5215512345678" },
+                  { icon: <Instagram className="w-5 h-5" />, url: contactInfo.instagramUrl },
+                  { icon: <Facebook className="w-5 h-5" />, url: contactInfo.facebookUrl },
+                  { icon: <MessageCircle className="w-5 h-5" />, url: createWhatsAppLink() },
                 ].map((social, index) => (
                   <Button
                     key={index}
@@ -579,7 +604,7 @@ export default function Component() {
               © 2024 Diego Torres - Maestro Espiritual. Todos los derechos reservados.
             </p>
             <p className="text-gray-500 text-sm">
-              Servicios espirituales profesionales con más de 15 años de experiencia en México
+              Servicios espirituales profesionales con más de 7 años de experiencia en México
             </p>
           </div>
         </div>
