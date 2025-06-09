@@ -14,14 +14,12 @@ import {
   Shield,
   MessageCircle,
   Phone,
-  Mail,
-  Instagram,
-  Facebook,
   ArrowRight,
   CheckCircle,
   Users,
   Award,
   Clock,
+  MonitorPlay
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -30,10 +28,8 @@ import { TestimonialCarousel } from "@/components/ui/testimonial-carousel"
 // --- 1. Centralized Contact Information ---
 // Edit your phone number and other contact details only once in this object.
 const contactInfo = {
-  phone: "5215512345678",
-  email: "diego@esoterico.com",
-  instagramUrl: "https://instagram.com/diegotorres_esoterico",
-  facebookUrl: "https://facebook.com/diegotorres.esoterico",
+  phone: "5213222292874",
+  tiktok: "https://www.tiktok.com/@botanicatorres45",
 }
 
 // --- 2. Helper Function for WhatsApp Links ---
@@ -63,7 +59,7 @@ export default function Component() {
       title: "Venta de Veladoras",
       description: "Veladoras consagradas y bendecidas para diferentes propósitos espirituales y rituales sagrados",
       icon: <Flame className="w-6 h-6" />,
-      price: "Desde $290 - $890 MXN",
+      price: "Desde $250 a $590 MXN",
       image: "/veladoras2.jpeg?height=400&width=600&text=Candles+Spiritual",
       // We now only define the unique part of the message.
       whatsappText: "Hola, me interesa información sobre las veladoras",
@@ -72,17 +68,25 @@ export default function Component() {
       title: "Lectura de Tarot - Cartas Españolas",
       description: "Consulta espiritual con cartas españolas tradicionales para revelar tu destino y guiar tu camino",
       icon: <Star className="w-6 h-6" />,
-      price: "Desde $450 - $850 MXN",
+      price: "$450 MXN",
       image: "/cartas.jpeg?height=400&width=600&text=Tarot+Cards",
       whatsappText: "Hola, me interesa una lectura con cartas españolas",
+    },
+    {
+      title: "Carta Astral",
+      description: "Análisis profundo de tu mapa astral para comprender tu personalidad, talentos y desafíos.",
+      icon: <Moon className="w-6 h-6" />,
+      price: "$2900 MXN",
+      image: "/image1.jpeg?height=400&width=600&text=Carta+Astral",
+      whatsappText: "Hola, me interesa una carta astral",
     },
     {
       title: "Tarot de los 7 Arcángeles",
       description: "Conexión divina a través del poderoso tarot de los 7 arcángeles para obtener sabiduría celestial",
       icon: <Eye className="w-6 h-6" />,
-      price: "Desde $550 - $950 MXN",
+      price: "$850 MXN",
       image: "/arcangel.jpeg?height=400&width=600&text=7+Angels+Tarot",
-      whatsappText: "Hola, me interesa el tarot de los 7 arcángeles",
+      whatsappText: "Hola, me interesa una lectura con el tarot de los 7 arcángeles",
     },
     {
       title: "Trabajos Blancos y Negros",
@@ -97,9 +101,17 @@ export default function Component() {
       title: "Limpias y Abrecaminos",
       description: "Limpieza energética profunda y apertura de caminos para el éxito, prosperidad y bienestar",
       icon: <Shield className="w-6 h-6" />,
-      price: "Desde $1,200 - $2,800 MXN",
+      price: "Desde $1,200 - $5,900 MXN",
       image: "/eterial.jpeg?height=400&width=600&text=Energy+Cleansing",
       whatsappText: "Hola, me interesa una limpia espiritual",
+    },
+    {
+      title: "Amarres, Endulzamientos, Retornos y Mas trabajos",
+      description: "Trabajos espirituales personalizados para fortalecer lazos amorosos, endulzar relaciones o propiciar retornos, cualquier otro trabajo espiritual se revisa en consulta.",
+      icon: <Heart className="w-6 h-6" />,
+      price: "Precio dependiendo del caso o consulta",
+      image: "/image4.jpeg?height=400&width=600&text=Amarres",
+      whatsappText: "Hola, me interesa información sobre amarres, endulzamientos o retornos",
     },
   ]
 
@@ -297,24 +309,43 @@ export default function Component() {
             </Card>
           </div>
 
+          {/* New Note: Proceso y Efectividad */}
+          <div className="max-w-4xl mx-auto mb-20">
+            <Card className="bg-black/40 border-luxury-gold/20 backdrop-blur-sm">
+              <CardContent className="p-8">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-luxury-gold/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                    <CheckCircle className="w-6 h-6 text-luxury-gold" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-luxury-gold mb-3">Consideraciones Importantes</h3>
+                    <p className="text-gray-300 text-lg leading-relaxed">
+                      Es fundamental comprender que todo proceso espiritual requiere su tiempo y dedicación para manifestar resultados óptimos. Nuestros trabajos son 100% efectivos, diseñados para ofrecer soluciones genuinas y duraderas. La paciencia y la fe son componentes clave para el éxito.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
           {/* Services Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <Card
                 key={index}
-                className={`group bg-gradient-to-br from-gray-900/40 to-black/40 border-gray-800/50 hover:border-luxury-gold/30 backdrop-blur-sm transition-all duration-500 transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-luxury-gold/10 ${
+                className={`group bg-gradient-to-br from-gray-900/40 to-black/40 border-gray-800/50 hover:border-luxury-gold/30 backdrop-blur-sm transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl hover:shadow-luxury-gold/10 ${
                   activeService === index ? "border-luxury-gold/30 shadow-xl shadow-luxury-gold/10" : ""
                 }`}
                 onMouseEnter={() => setActiveService(index)}
               >
                 <CardContent className="p-0">
                   {/* Service Image */}
-                  <div className="relative h-48 overflow-hidden rounded-t-xl">
+                  <div className="relative h-64 overflow-hidden rounded-t-xl">
                     <Image
                       src={service.image || "/placeholder.svg"}
                       alt={service.title}
                       fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="object-cover object-top group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                     <div className="absolute top-4 right-4">
@@ -330,7 +361,7 @@ export default function Component() {
                       <h3 className="text-xl font-bold text-white mb-2 group-hover:text-luxury-gold transition-colors">
                         {service.title}
                       </h3>
-                      <Badge className="bg-luxury-gold/10 text-luxury-gold border-luxury-gold/20 text-sm">
+                      <Badge variant="luxuryGold" className="text-sm">
                         {service.price}
                       </Badge>
                     </div>
@@ -459,24 +490,14 @@ export default function Component() {
                 onClick: () => window.open(createWhatsAppLink(), "_blank"),
               },
               {
-                icon: <Phone className="w-8 h-8" />,
-                title: "Teléfono",
-                description: "Llamada directa",
-                action: "Llamar Ahora",
+                icon: <MonitorPlay className="w-8 h-8" />,
+                title: "Tiktok",
+                description: "Pregunta en tiktok",
+                action: "Seguir Ahora",
                 bgColor: "bg-blue-600",
                 hoverColor: "hover:bg-blue-700",
                 // Uses the phone number from the contactInfo object
-                onClick: () => window.open(`tel:+${contactInfo.phone}`, "_blank"),
-              },
-              {
-                icon: <Mail className="w-8 h-8" />,
-                title: "Email",
-                description: "Consulta detallada",
-                action: "Enviar Email",
-                bgColor: "bg-purple-600",
-                hoverColor: "hover:bg-purple-700",
-                // Uses the email from the contactInfo object
-                onClick: () => window.open(`mailto:${contactInfo.email}`, "_blank"),
+                onClick: () => window.open("https://www.tiktok.com/@botanicatorres45", "_blank"),
               },
             ].map((contact, index) => (
               <Card
@@ -502,7 +523,7 @@ export default function Component() {
 
           {/* CTA Section */}
           <Card className="bg-luxury-gold/10 border-luxury-gold/20 backdrop-blur-sm">
-            <CardContent className="p-12 text-center">
+            <CardContent className="p-8 md:p-12 text-center">
               <h3 className="text-3xl font-bold text-white mb-4">¿Listo para tu Consulta Espiritual?</h3>
               <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
                 Agenda tu consulta personalizada y descubre los misterios que el universo tiene preparados para ti. Tu
@@ -510,7 +531,7 @@ export default function Component() {
               </p>
               <Button
                 size="lg"
-                className="bg-luxury-gold hover:bg-luxury-gold-dark text-black px-12 py-4 text-lg font-semibold rounded-2xl shadow-2xl hover:shadow-luxury-gold/25 transform hover:scale-[1.02] transition-all duration-300"
+                className="bg-luxury-gold hover:bg-luxury-gold-dark text-black px-8 py-4 text-base font-semibold rounded-2xl shadow-2xl hover:shadow-luxury-gold/25 transform hover:scale-[1.02] transition-all duration-300 max-w-[270px] md:max-w-none lg:px-12 lg:text-lg"
                 onClick={() =>
                   window.open(
                     createWhatsAppLink("Hola Diego, me gustaría agendar una consulta espiritual"),
@@ -572,18 +593,12 @@ export default function Component() {
                   {/* Using the constant for display */}
                   <span className="text-gray-400">WhatsApp: +{contactInfo.phone}</span>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <Mail className="w-5 h-5 text-luxury-gold" />
-                  {/* Using the constant for display */}
-                  <span className="text-gray-400">{contactInfo.email}</span>
-                </div>
               </div>
 
               <div className="flex space-x-4 mt-6">
                 {[
-                  { icon: <Instagram className="w-5 h-5" />, url: contactInfo.instagramUrl },
-                  { icon: <Facebook className="w-5 h-5" />, url: contactInfo.facebookUrl },
                   { icon: <MessageCircle className="w-5 h-5" />, url: createWhatsAppLink() },
+                  { icon: <MonitorPlay className="w-5 h-5" />, url: contactInfo.tiktok },
                 ].map((social, index) => (
                   <Button
                     key={index}

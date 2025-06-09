@@ -29,55 +29,115 @@ export function TestimonialCarousel() {
   const testimonials: Testimonial[] = [
     {
       id: 1,
-      name: "María González",
-      role: "Cliente Frecuente",
+      name: "L. M.",
+      role: "Cliente de Lectura",
       content:
-        "Diego ha transformado mi vida completamente. Sus lecturas de tarot son increíblemente precisas y sus consejos espirituales me han ayudado a superar momentos muy difíciles. Recomiendo totalmente sus servicios a cualquiera que busque orientación espiritual.",
+        "Me sentí muy bien durante la lectura, la verdad. Todo lo que me decías era cierto y sentí una conexión muy especial al momento de hablar. Agradezco mucho tu ayuda y por estar ahí para escucharme.",
       rating: 5,
-      image: "/faivcon.png",
-      service: "Lectura de Tarot",
+      image: "/faivcon.png", // <- Reemplazar con la ruta de tu imagen
+      service: "Lectura y Guía Espiritual",
     },
     {
       id: 2,
-      name: "Carlos Rodríguez",
-      role: "Empresario",
+      name: "Cliente Satisfecha",
+      role: "Testimonio de Rapidez",
       content:
-        "Después de la limpia energética que Diego realizó en mi negocio, las ventas aumentaron significativamente. Su conexión con el mundo espiritual es extraordinaria y su profesionalismo es impecable. Estoy eternamente agradecido por su ayuda.",
+        "¡No lo puedo creer! Tal como me lo dijiste, esa persona me contactó en menos de 24 horas. Muchísimas gracias, siempre entregas los mejores resultados.",
       rating: 5,
       image: "/faivcon.png",
-      service: "Limpias y Abrecaminos",
+      service: "Trabajo de Influencia Rápida",
     },
     {
       id: 3,
-      name: "Ana Martínez",
-      role: "Profesora",
+      name: "S. R.",
+      role: "Cliente Agradecida",
       content:
-        "Las veladoras consagradas que adquirí con Diego han traído paz y armonía a mi hogar. Su conocimiento sobre rituales espirituales es profundo y siempre está dispuesto a explicar detalladamente cada procedimiento. Un verdadero maestro espiritual.",
-      rating: 4,
+        "Qué bueno que me animé. Empecé a hacer lo que me indicaste y casi de inmediato comencé a sentirme mucho más tranquila. Me da mucho gusto ver que esto funciona para mejorar todo. Eres el mejor.",
+      rating: 5,
       image: "/faivcon.png",
-      service: "Venta de Veladoras",
+      service: "Armonización y Bienestar",
     },
     {
       id: 4,
-      name: "Roberto Sánchez",
-      role: "Médico",
+      name: "Testimonio de un Estado",
+      role: "Cliente de Prosperidad",
       content:
-        "El tarot de los 7 arcángeles fue una experiencia reveladora. Diego tiene un don especial para conectar con las energías celestiales y transmitir mensajes con claridad y compasión. Su guía ha sido fundamental para tomar decisiones importantes en mi vida.",
+        "Quiero dar mi testimonio. Gracias a ti, Diego, mi dinero me rinde mucho más. Recomiendo tus trabajos de abre caminos al cien por ciento. ¡Muchas gracias!",
       rating: 5,
       image: "/faivcon.png",
-      service: "Tarot de los 7 Arcángeles",
+      service: "Abre Caminos Financiero",
     },
     {
       id: 5,
-      name: "Laura Díaz",
-      role: "Artista",
+      name: "Cliente de California, EE. UU.",
+      role: "Caso de Alta Complejidad",
       content:
-        "Los trabajos espirituales de Diego son poderosos y efectivos. Gracias a su intervención, pude superar bloqueos creativos que me impedían avanzar en mi carrera. Su ética profesional y su dedicación son admirables.",
+        "Primero que nada, gracias por todo. Te doy mi testimonio con mil gracias por haber sacado a mi marido de la cárcel, algo que yo jamás creí que fuera posible. Al principio dudé, pero me comprobaste que podía confiar en ti. Lo seguiré haciendo.",
       rating: 5,
       image: "/faivcon.png",
-      service: "Trabajos Blancos y Negros",
+      service: "Trabajo de Justicia y Liberación",
     },
-  ]
+    {
+      id: 6,
+      name: "Una Madre Agradecida",
+      role: "Reconciliación Familiar",
+      content:
+        "Mi hijo se comunicó conmigo para pedirme perdón y reconciliarnos. Me dijo que quería verme y hablar. Estoy muy agradecida, de verdad esto me sirvió muchísimo.",
+      rating: 5,
+      image: "/faivcon.png",
+      service: "Armonización Familiar",
+    },
+    {
+      id: 7,
+      name: "C. G. (USA)",
+      role: "Cliente Paciente",
+      content:
+        "Tengo tanto que agradecerte. Tal como decías, todo se dio a su debido tiempo y por fin se logró el resultado que esperaba. Gracias a ti y a mi santita, estoy muy feliz.",
+      rating: 5,
+      image: "/faivcon.png",
+      service: "Trabajo a Largo Plazo",
+    },
+    {
+      id: 8,
+      name: "Cliente Anónima",
+      role: "Testimonio de Retorno",
+      content:
+        "Te escribo para decirte que llegó. ¡Me lo encontré en la mañana acostado en el suelo! No puedo creer la efectividad, los resultados se vieron en menos de 24 horas. Gracias.",
+      rating: 5,
+      image: "/faivcon.png",
+      service: "Retorno de Pareja",
+    },
+    {
+      id: 9,
+      name: "Testimonio sobre Predicción",
+      role: "Confirmación de Videncia",
+      content:
+        "Me habías comentado sobre tres eventos, y uno de ellos, relacionado con un camión de pasajeros y un accidente grave, lamentablemente se cumplió. Es una confirmación de la veracidad de tus visiones.",
+      rating: 5,
+      image: "/faivcon.png",
+      service: "Videncia y Predicciones",
+    },
+    {
+      id: 10,
+      name: "Cliente Convencido",
+      role: "Cliente Fiel",
+      content:
+        "Después de ver tus videos, noté que eres una persona muy sincera y eso fue lo que me transmitió la confianza y la fe que necesitaba para animarme a contactarte. Gracias por el aprecio y la ayuda.",
+      rating: 5,
+      image: "/faivcon.png",
+      service: "Consulta Inicial",
+    },
+    {
+      id: 11,
+      name: "J. P.",
+      role: "Cliente Transformado",
+      content:
+        "De verdad, muchas gracias por no haberme dejado solo en los momentos más malos de mi vida. Desde el primer día me dijiste que tuviera fe y confiara en ti. Lo hice, y ahora me está yendo súper bien. Tarde o temprano, todo se da.",
+      rating: 5,
+      image: "/faivcon.png",
+      service: "Acompañamiento Espiritual",
+    },
+  ];
 
   const nextTestimonial = () => {
     if (isAnimating) return
